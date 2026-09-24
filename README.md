@@ -20,131 +20,136 @@ The weights are **not published yet**. The run is still reading its first pass o
 
 ![training progress](assets/training_progress.png)
 
-*Every sample round of the run to date: 456.2M characters over 961 evaluations.*
+*Every sample round of the run to date: 483.4M characters over 1,014 evaluations.*
 
 </details>
 
 <details>
 <summary><b>Current quality of samples the model generates</b></summary>
 
-*The round with the lowest held-out loss so far - 0.7739 nats at 453.2M characters. Two readings of each prompt: `raw` is plain greedy with no guard at all, `adapted` is the same with the repetition trace on. The whole history is in [runs/samples.txt](runs/samples.txt).*
+*The round with the lowest held-out loss so far - 0.7644 nats at 483.4M characters. Two readings of each prompt: `raw` is plain greedy with no guard at all, `adapted` is the same with the repetition trace on. The whole history is in [runs/samples.txt](runs/samples.txt).*
 
 ```
 ==============================================================================
-step 221,648   453.2M of 7,879M characters (5.75%)   105 min   174 experts
-context 4,096 characters of 4,096   reading 841 char/s   still gaining +0.0518 deep into it
-grad norm 1.04 against a clip of 1   clipping
-train loss 0.6346   lr 1.79e-04   evidence t +2.52 over 65.7 (effect +0.0561)   rate x0.598
-held-out loss 0.7739 +/-0.0337 nats   1.1164 bits/char   perplexity 2.17   gap +0.1392
-  arithmetic 0.638   chat 0.762   chat_hermes 1.124   chess 0.504   code 0.652   reasoning 0.705   stories 0.558   wikipedia 1.248
-repeats 36% of 8-grams, greedy with no guard
+step 236,402   483.4M of 7,879M characters (6.14%)   536 min   172 experts
+context 4,096 characters of 4,096   reading 809 char/s   still gaining +0.0474 deep into it
+grad norm 0.95 against a clip of 1   under the clip
+train loss 0.5937   lr 1.64e-04   evidence t +2.46 over 65.7 (effect +0.0548)   rate x0.548
+held-out loss 0.7644 +/-0.0334 nats   1.1028 bits/char   perplexity 2.15   gap +0.1707
+  arithmetic 0.637   chat 0.748   chat_hermes 1.114   chess 0.486   code 0.645   reasoning 0.702   stories 0.555   wikipedia 1.228
+repeats 27% of 8-grams, greedy with no guard
 ==============================================================================
 
 --- stories ---
 prompt: 'Once upon a time, there was a little boy named Tom. One day he '
-[raw]  repeated 8-grams 6%
-was playing in his garden when he saw a big bird. He was so excited to see it and he wanted to see it up close.
+[raw]  repeated 8-grams 22%
+was walking in the park when he saw a big bag of carrots. He was scared, but he was scared.
 
-He stopped to start to star
+Tom was scared, but he was scared. He wanted to
 [adapted]  repeated 8-grams 14%
-was playing outside when he saw another boy. He was very happy.
+was playing with his friends. He was very happy.
 
-Tom wanted to play with the boy. He wanted to play with it.
+Tom was very happy. He wanted to go, but he wasn't.
 
-He ran outside
+His friends wanted him. Tom was very 
 
 --- code ---
 prompt: 'def merge_sorted(a, b):\n    '
-[raw]  repeated 8-grams 66%
-    """
-        Convert a sorted sorted sorted sorted sorted sorted sorted
-        sorted sorted sorted sorted sorted sorted sorted sorted s
-[adapted]  repeated 8-grams 24%
-"""
-    Computes anything formatively defined bytes.
-    """
-    a,j_types, bytes_dict = a
+[raw]  repeated 8-grams 30%
+    return a
+    except AttributeError:
+        return a
+    else:
+        return a
 
-    formats, bytes_dict = a
+    return a
 
-    formats, bytes_
+
+def merge_sorted(a, b):
+    return a
+
+
+d
+[adapted]  repeated 8-grams 34%
+"""Merges and merges the angles.
+
+    Args:
+    """
+
+  this_args: lib.merge_sorted(a, b)
+  this_args: lib.merge_sorted(a, b)
+  this_args: li
 
 --- arithmetic ---
 prompt: 'add 4917 + 388 = '
-[raw]  repeated 8-grams 86%
-5295
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0 = 7
-add 7 + 0
-[adapted]  repeated 8-grams 0%
-5205
-sub 769143 - 208576 = <think> 3-6-0=7b1 4-7-1=6b1 1-5-1=5b1 9-8-1=0b0 6-0-0=6b0 7-2-0=5b0 </think> 560567
-add 394128 + 706539 = 1100667
-sub 249358 -
+[raw]  repeated 8-grams 44%
+<think> 7+8+0=5c1 1+8+1=0c1 9+3+1=3c1 4+0+1=5c0 </think> 5305
+mul 1 * 1 = 1
+mul 1 * 1 = 1
+mul 1 * 1 = 1
+mul 1 * 1 = 1
+mul 1 * 1 = 1
+mul 1 * 1 = 1
+sub 2 -
+[adapted]  repeated 8-grams 3%
+<think> 7+8+0=5c1 1+8+1=0c1 9+3+1=3c1 4+0+1=5c0 </think> 5305
+mul 6287 * 19 = <think> 6287*9=56583 6287*10=62870 56583+62870=119453 </think> 119453
+mul 2680 * 79 = 21
 
 --- chat ---
 prompt: '<user>\nWhat are you?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 0%
-I am mini-AGI. I read and write one character at a time. My alphabet is the argument I am in -u" reads a number a new expert is united as a 
+[raw]  repeated 8-grams 1%
+I can be wrong, and I have a measurable sense of when I have got of me size my misunders. New millisectoral is treated as a subject and I ro
 [adapted]  repeated 8-grams 0%
-In a directory of 512 into 2048 hidden units, one gating the other through a single card, and the lines I'm going to find them.
-</bot>
-<user>
-What is 
+It's minute, and an expert sonarch of text I read produces a gradient step, and my weights are different afterwards. New experts are added o
 
 --- chat_hermes ---
 prompt: '<user>\nA train travels 60 km in 45 minutes. What is its speed in km/h?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 69%
-The speed in km/h is a traveler whose speed is a traveler whose speed is a traveler whose speed is a traveler whose speed is a traveler whos
-[adapted]  repeated 8-grams 31%
-The speed in km/h, which represents km/h, which represents km/h, which represents km/h.
+[raw]  repeated 8-grams 59%
+The train travels 60 km in 45 minutes. The speed is 15 km in 45 minutes. The speed is 15 km in 45 minutes. The speed is 15 km in 45 minutes.
+[adapted]  repeated 8-grams 1%
+The train travels 60 km/h, which is the same answer.
 </bot>
 <user>
-Write a function that returns all positive funct
+What is the code for this article?
+</user>
+<bot>
+The article best applies to an integral of 1
 
 --- reasoning ---
 prompt: '<user>\nWrite a Python function that returns the largest number in a list.\n</user>\n<bot>\n<think>\n'
-[raw]  repeated 8-grams 46%
-Okay, let's see. I need to find the largest number in a list. So the largest number is a list. So the largest number is a list. So the large
-[adapted]  repeated 8-grams 16%
-Okay, let's see. I need to find the largest number in a list.
+[raw]  repeated 8-grams 24%
+Okay, let's see. I need to find the largest number in a list. Let's say a list. The list is a list and a list is a list. The list is a list.
+[adapted]  repeated 8-grams 0%
+Okay, I need to write an function called get_largest_number. Let me start by recalling what I know. We have two largest number in a list.
 
-The largest number is at least 1, which is at least 1.
-</bot>
-<user>
-What is the larges
+F
 
 --- wikipedia ---
 prompt: '== History ==\nThe [[Roman Empire]] was '
-[raw]  repeated 8-grams 49%
-a [[Roman Empire]] in [[Roman Empire]] and a [[Roman Empire]] in [[Roman Empire]]. The result of the [[Roman Empire]] was a [[Roman Empire]]
-[adapted]  repeated 8-grams 66%
-the [[Roman Empire]] whose [[Roman Empire]] was the [[Roman Empire]].
-*[[Roman Empire]] was the [[Roman Empire]] whose [[Roman Empire]] was 
+[raw]  repeated 8-grams 65%
+a series of the [[Roman Empire]] and the [[Roman Empire]] was a series of the [[Roman Empire]] and the [[Roman Empire]] was a series of the 
+[adapted]  repeated 8-grams 14%
+the [[Roman Empire]], who stayed in the [[Roman Empire]]. In the [[1980s]], the roles are then bought in [[1980s]], and they were bought.
+
+T
 
 --- chess ---
 prompt: '<g>1700 1-0 1. e4 e5 2. '
-[raw]  repeated 8-grams 0%   23 legal moves, then Rad8
-Nf3 Nc6 3. Bb5 a6 4. Ba4 b5 5. Bb3 Nf6 6. O-O Be7 7. Re1 O-O 8. c3 d5 9. exd5 Nxd5 10. Bc2 Bd6 11. Ne5 Bxe5 12. Rxe5 Qd6 13. Re1 Rad8 14. Qe
-[adapted]  repeated 8-grams 0%   24 legal moves, then 14
-Nf3 d6 3. Bc4 h6 4. O-O Ne7 5. d4 exd4 6. Nxd4 c5 7. Nf3 Be6 8. Bxe6 fxe6 9. Nc3 Qb6 10. Nd5 Qxb2 11. Rab1 Qxc3 12. Rxb7 Qa5 13. Rxc7 Qb4 14
+[raw]  repeated 8-grams 0%   22 legal moves, then Qe2
+Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6 5. O-O Bg4 6. h3 Bxf3 7. Qxf3 Nf6 8. d3 Be7 9. Bg5 O-O 10. Nc3 h6 11. Bxf6 Bxf6 12. Qg3 Bg5 13. Qe2 Qe7 14. Q
+[adapted]  repeated 8-grams 0%   25 legal moves, none illegal
+Nf3 d6 3. Bc4 h6 4. O-O Nf6 5. Re1 Bg4 6. h3 Bxf3 7. Qxf3 Nc6 8. d3 Be7 9. Bg5 O-O 10. Nc3 a6 11. Bxf6 Bxf6 12. Qg3 Be7 13. Nd5 Bg5 14. Qh2 
 
 --- self-knowledge ---
 prompt: '<user>\nhow do you decide which experts to use?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 2%
-Adam with decoupled weight decay. The rate follows no schedule at all, because a schedule needs an end to anneal toward and I do not have on
+[raw]  repeated 8-grams 0%
+I attend directly over the last 128 characters, so no pass no random pass of a much larger gradient than usual, the pool is still computed f
 [adapted]  repeated 8-grams 2%
-Adam with decoupled weight decay. The rate follows no schedule at all, because a schedule nearly all characters size that gate.
+I attend directly over the last 128 characters, so no path rather than one character.
 </bot>
 <user>
-what is
+I need a Python function that returns all the prod
 ```
 
 </details>
@@ -174,7 +179,7 @@ Characters (bytes) does not pass through a fixed stack of layers as it would be 
 Three distinct blocks, up to 26 block-applications per character.
 
 - **Adaptive depth.** A halting head scores every character at every row, and the character stops as soon as another row would not change the answer. Easy characters take one row, hard ones take many. This is the PonderNet recipe: while training, every depth is computed and weighted by its halting probability, so the halting head learns through those weights.
-- **Routing per block-application, not per character.** Each of the 26 applications picks its own top-8 experts, so one character touches far more of the pool than "top-8" suggests, and the same expert can be selected several times at different depths. What varies is *which* eight at each point.
+- **Routing per block-application, not per character.** Each of the 24 recurrent applications picks its own top-8 experts, so one character touches far more of the pool than "top-8" suggests, and the same expert can be selected several times at different depths. What varies is *which* eight at each point.
 - **No expert is assigned a subject.** There are no labels anywhere. Soft top-k routing distributes capability across the pool by itself, and a character can combine fragments from several experts. The cost is that capabilities share parameters and so *can* interfere.
 
 ![how the model processes one character](assets/shape.gif)
@@ -199,7 +204,7 @@ What it produced, continuing a story about a cherry tree:
 
 > They worked together and saw their favorite shore. One day, they wanted to play with their favorite shore. They wanted to play with it, but
 
-Grammatically correct and on-topic. It does repeats itself for now - which is a fair picture of where the model is at 243M characters.
+Grammatically correct and on-topic. It does repeats itself for now - which is a fair picture of where the model was at 243M characters, when the clip was recorded.
 
 ## How paging works
 
@@ -212,6 +217,8 @@ Every expert is a file on disk holding its weights and its Adam moments. Above d
 | VRAM | `resident` | the working set - what a character may route through |
 
 Before every chunk the model is asked what the text about to be read wants, and the answer becomes the working set. Demand is scored on the hidden states the call sites actually routed on while reading the previous chunk - an embedding carries no context, so scoring on raw embeddings would have every subject asking for the same experts.
+
+At a boundary there is no previous chunk to score. The first chunk of a passage, and a prompt, would otherwise be scored on the states of whatever was read last, which is a different subject entirely - so the text is read once first, from a fixed starting set, and the working set is chosen from its own states. The fixed start is what makes the choice a function of the text alone: peeking from wherever the last passage left off still gave 4.8 different working sets for one prompt across seven preceding passages, and starting from the same set every time gives one.
 
 Two rules the project holds to:
 
@@ -265,7 +272,7 @@ A million consecutive characters of one subject is **32 passages back to back**.
 
 Nothing in normal use looks like the massed arm either. A conversation wanders, and a model reading your files reads whatever is there. Such regime only arises deliberately - a bot specialised on one subject and fed nothing else for a long stretch.
 
-So the row that describes the actual system is the last one, and it is the strongest result here:
+So, the last row here is the one that describes the actual system:
 
 ```
 pg19         1.6773 -> 1.3649   -0.3124   (read)
@@ -365,25 +372,25 @@ The numbers below are for tracking purposes and move as the run continues. Held-
 There is a second variance underneath these figures. The same configuration run twice lands about 0.014 apart, because the expert dispatch is not deterministic on CUDA. **Treat about 0.03 as the threshold for a real difference**, not the error bar printed beside one score.
 
 <!-- auto:benchmarks -->
-**Where the model is** (456.2M characters read, 174 experts):
+**Where the model is** (483.4M characters read, 172 experts):
 
 | | nats/char | bits/byte |
 |---|---|---|
-| **held-out, all 8 subjects** | **0.7751** ± 0.0338 | **1.1182** |
-| train | 0.6422 | 0.9265 |
+| **held-out, all 8 subjects** | **0.7644** ± 0.0334 | **1.1028** |
+| train | 0.5937 | 0.8565 |
 
 **Held-out loss per subject:**
 
 | Subject | nats/char | bits/byte |
 |---|---|---|
-| `chess` | 0.501 | 0.723 |
-| `stories` | 0.561 | 0.809 |
-| `arithmetic` | 0.635 | 0.916 |
-| `code` | 0.656 | 0.946 |
-| `reasoning` | 0.717 | 1.034 |
-| `chat` | 0.753 | 1.086 |
-| `chat_hermes` | 1.133 | 1.635 |
-| `wikipedia` | 1.245 | 1.796 |
+| `chess` | 0.486 | 0.701 |
+| `stories` | 0.555 | 0.801 |
+| `arithmetic` | 0.637 | 0.919 |
+| `code` | 0.645 | 0.931 |
+| `reasoning` | 0.702 | 1.013 |
+| `chat` | 0.748 | 1.079 |
+| `chat_hermes` | 1.114 | 1.607 |
+| `wikipedia` | 1.228 | 1.772 |
 <!-- /auto:benchmarks -->
 
 ### Data Scaling
@@ -393,16 +400,16 @@ There is a second variance underneath these figures. The same configuration run 
 
 Every point on this chart is a **bits-per-byte on the PG19 test split** - one held-out set, so the comparison is direct. This model scores **2.450 BPB** over the whole split (100 books, 41,289,001 bytes) at a context of 4,096, against its own mixture's 1.16. PG19 is out of distribution for it: it was trained on a corpus assembled for this project and has read no Victorian novels, so much of that gap is subject matter rather than capability.
 
-**The results so far are promising.** The red line is the fitted power law on this model's own held-out, `L ∝ D^-0.243` with R² 0.97 over every point past the warmup - between Kaplan's 0.095 and Chinchilla's 0.28, and it has held for more than a decade of data. How steep it looks depends on where the fit starts, and the band on the chart spans that range rather than pretending to one number.
+**The results so far are promising.** The red line is the fitted power law on this model's own held-out, `L ∝ D^-0.242` with R² 0.98 over every point past the warmup - between Kaplan's 0.095 and Chinchilla's 0.28, and it has held for more than a decade of data. How steep it looks depends on where the fit starts, and the band on the chart spans that range rather than pretending to one number.
 
-Read straight off that trend, on this model's own mixture:
+Read straight off that trend, on this model's own mixture. It has read 0.48B characters so far, which took about 7 days at the current rate:
 
-| held-out | bytes needed | days at ~700 char/s |
-|---|---|---|
-| 1.10 BPB | 0.49B | ~1 |
-| 1.00 BPB | 0.72B | ~4 |
-| 0.93 BPB | 0.97B | ~9 |
-| 0.80 BPB | 1.81B | ~22 |
+| held-out | total data read | further reading | days from here at ~809 char/s |
+|---|---|---|---|
+| 1.10 BPB | 0.49B | +0.01B | 2 hours |
+| 1.00 BPB | 0.72B | +0.24B | ~3 |
+| 0.93 BPB | 0.98B | +0.49B | ~7 |
+| 0.80 BPB | 1.82B | +1.33B | ~19 |
 
 Those are days to weeks of reading on one laptop GPU, not years, and all of them sit inside a single pass of the 7.88B-character corpus.
 
@@ -531,13 +538,13 @@ The parameter count moves, because the pool grows and prunes itself while traini
 
 ```
 core        8.27M   embeddings, attention, norms, adapter, halting head
-routers     0.17M   one row per expert per call site, plus depth embeddings
-experts   531.6M    169 x 3.15M each  (3 x 512 x 2048)
+routers     0.18M   one row per expert per call site, plus depth embeddings
+experts   550.5M    175 x 3.15M each  (3 x 512 x 2048)
 --------------------
-total     540.1M
+total     559.0M
 ```
 
-**VRAM is set by the working set, not by the pool.** Only 32 experts are resident at a time - about 109M parameters of the 540M - which is why the pool can keep growing on an 8 GB card. Per byte the model costs about 2.4 GFLOPs to train, which puts it in the same compute class as a dense 400M byte-level transformer.
+**VRAM is set by the working set, not by the pool.** Only 32 experts are resident at a time - about 109M parameters of the 559M - which is why the pool can keep growing on an 8 GB card. Per byte the model activates about **344M** parameters - two prelude blocks, then attention and top-8 of the resident experts on each of the 24 recurrent steps - so by the 6ND rule it costs the same per byte as a dense 344M byte-level transformer, not a 559M one. That is the figure the scaling chart below is drawn against.
 
 ## AI usage
 
