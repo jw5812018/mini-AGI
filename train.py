@@ -1824,11 +1824,17 @@ def build_paged(wdir, device, resident=None, ram_capacity=256, ceiling=None,
     # written before this existed carries no value for it and would otherwise
     # get the dataclass default, which is right but silent; taking it from the
     # config every load means the number in the file is the number in effect.
+    _key_floor = None
     try:
         from minagi.config import load as _load_cfg, get as _get_cfg
+        _c = _load_cfg()
         cfg.pool_capacity_factor = float(
-            _get_cfg(_load_cfg(), "pool.capacity_factor",
-                     cfg.pool_capacity_factor))
+            _get_cfg(_c, "pool.capacity_factor", cfg.pool_capacity_factor))
+        # Same reasoning as the capacity factor: how the pool is SCHEDULED is
+        # a property of the run, not of the checkpoint. Applied here rather
+        # than in cmd_read so that everything opening a paged model - serving,
+        # the probes - schedules it the way the run does.
+        _key_floor = _get_cfg(_c, "pool.key_floor", None)
     except Exception:
         pass
     # the per-token router keeps one row per EXPERT, not per VRAM slot, so it
@@ -1861,6 +1867,8 @@ def build_paged(wdir, device, resident=None, ram_capacity=256, ceiling=None,
             m._pool[0] = pool
     model.pool = pool
     pool.attach_sites(model)
+    if _key_floor is not None:
+        pool.key_floor = float(_key_floor)
     pool.load_telemetry(man.get("telemetry"))
     ever = cfgd.get("pool_ever")
     if ever:

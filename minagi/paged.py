@@ -259,8 +259,10 @@ class PagedPool(nn.Module):
                              persistent=False)
         self.next_uid = int(n_experts)
         self.key_weight = 1.0
-        # how much an expert that has earned nothing may still be wanted for
-        # its fit alone - low, but not zero, or growth could never take
+        # How much an expert that has earned nothing may still be wanted for
+        # its fit alone - low, but not zero, or growth could never take. The
+        # value in effect comes from pool.key_floor in config.yaml, applied by
+        # build_paged; this is the fallback for a pool built without it.
         self.key_floor = 0.1
         # A new expert cannot lift its gate without being chosen, and would not
         # be chosen because its gate is low - a loop that deletes every new
