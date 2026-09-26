@@ -20,119 +20,122 @@ The weights are **not published yet**. The run is still reading its first pass o
 
 ![training progress](assets/training_progress.png)
 
-*Every sample round of the run to date: 518.2M characters over 1,084 evaluations.*
+*Every sample round of the run to date: 556.5M characters over 1,164 evaluations.*
 
 </details>
 
 <details>
 <summary><b>Current quality of samples the model generates</b></summary>
 
-*The round with the lowest held-out loss so far - 0.7511 nats at 518.2M characters. Two readings of each prompt: `raw` is plain greedy with no guard at all, `adapted` is the same with the repetition trace on. The whole history is in [runs/samples.txt](runs/samples.txt).*
+*The round with the lowest held-out loss so far - 0.7439 nats at 548.9M characters. Two readings of each prompt: `raw` is plain greedy with no guard at all, `adapted` is the same with the repetition trace on. The whole history is in [runs/samples.txt](runs/samples.txt).*
 
 ```
 ==============================================================================
-step 253,398   518.2M of 7,879M characters (6.58%)   235 min   169 experts
-context 4,096 characters of 4,096   reading 830 char/s   still gaining +0.0443 deep into it
-grad norm 0.96 against a clip of 1   under the clip
-train loss 0.6231   lr 1.52e-04   evidence t +2.73 over 65.7 (effect +0.0606)   rate x0.509
-held-out loss 0.7511 +/-0.0329 nats   1.0836 bits/char   perplexity 2.12   gap +0.1280
-  arithmetic 0.632   chat 0.737   chat_hermes 1.086   chess 0.484   code 0.631   reasoning 0.686   stories 0.537   wikipedia 1.217
+step 268,399   548.9M of 7,879M characters (6.97%)   1007 min   168 experts
+context 4,096 characters of 4,096   reading 675 char/s   still gaining +0.0377 deep into it
+grad norm 0.97 against a clip of 1   under the clip
+train loss 0.5805   lr 1.36e-04   evidence t +2.32 over 65.7 (effect +0.0515)   rate x0.454
+held-out loss 0.7439 +/-0.0327 nats   1.0733 bits/char   perplexity 2.10   gap +0.1634
+  arithmetic 0.632   chat 0.719   chat_hermes 1.077   chess 0.477   code 0.629   reasoning 0.687   stories 0.525   wikipedia 1.206
 repeats 38% of 8-grams, greedy with no guard
 ==============================================================================
 
 --- stories ---
 prompt: 'Once upon a time, there was a little boy named Tom. One day he '
-[raw]  repeated 8-grams 18%
-was playing in the park with his friends. Tom was very happy to see the big places and the streets. He wanted to see the big places and the 
-[adapted]  repeated 8-grams 11%
-was playing with his friends, and he was very tired.
+[raw]  repeated 8-grams 5%
+was playing in the park when he saw a big boy in the park. The boy was scared and didn't know what to do. Tom wanted to help the big boy for
+[adapted]  repeated 8-grams 15%
+was playing with his friend, a boy. They wanted to play with their friends.
 
-Tom was very stubbed. He wanted to play, but he wasn't very stubbed.
-
-His mom was very
+Tom wanted to play, but his friend, a big, scary dog, wanted to
 
 --- code ---
 prompt: 'def merge_sorted(a, b):\n    '
-[raw]  repeated 8-grams 81%
+[raw]  repeated 8-grams 82%
 """
-    Return the sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted so
-[adapted]  repeated 8-grams 4%
-"""
-    Returns the module.
-    """
-    return merge_sorted(a, b)
-</bot>
-<user>
-What does this do?
-def glInitGroup(self, a):
-   """Returns the global 
+    Merge the sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sorted sor
+[adapted]  repeated 8-grams 10%
+"""merges the arguments of all previous and more previous and more
+    previously."""
+    a, b_traces = merge_and_more(a, b)
+    if a.exprog
 
 --- arithmetic ---
 prompt: 'add 4917 + 388 = '
-[raw]  repeated 8-grams 35%
-<think> 7+8+0=5c1 1+8+1=0c1 9+3+1=3c1 4+0+1=5c0 </think> 5305
-sub 7 - 7 = 0
-sub 76 - 7 = 69
-sub 76 - 7 = 69
-sub 76 - 7 = 69
-sub 76 - 7 = 69
-sub 7 - 7 = <think>
-[adapted]  repeated 8-grams 1%
-<think> 7+8+0=5c1 1+8+1=0c1 9+3+1=3c1 4+0+1=5c0 </think> 5305
-sub 7268941 - 370526 = <think> 1-6-0=5b1 4-2-1=1b0 9-5-0=4b0 8-0-0=8b0 6-7-0=9b1 2-3-1=8b1 7-0-1=
+[raw]  repeated 8-grams 74%
+5245
+add 21 + 2 = 23
+add 21 + 2 = 23
+add 21 + 2 = 23
+add 21 + 2 = 23
+add 2 + 2 = 4
+add 2 + 2 = 4
+add 2 + 2 = 4
+add 2 + 2 = 4
+add 2 + 2 = 4
+a
+[adapted]  repeated 8-grams 0%
+5245
+mul 6190 * 73 = 452870
+add 619384 + 250761 = 860145
+add 293786 + 105492 = <think> 6+2+0=8c0 8+9+0=7c1 7+4+1=2c1 3+5+1=9c0 9+0+0=9c0 2+1+0=3c0
 
 --- chat ---
 prompt: '<user>\nWhat are you?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 2%
-In a directory, one file per expert. That directory is not a copy of me — it is me. When I grow an expert a new file appears; when one is 
-[adapted]  repeated 8-grams 3%
-In a directory, one file per expert. That directory is not a copy of me — it is me.
+[raw]  repeated 8-grams 6%
+In a directory, one file per expert at a file for the trunk, a file for the routers cost, so I can income of what I have just read.
+</bot>
+
+<user>
+Wri
+[adapted]  repeated 8-grams 0%
+In a directory, one file per expert, and one marks the end irwards. There is no separate model whole pass.
 </bot>
 <user>
-Write any_position: returns any position from the 
+do you learn
+</user>
+<bot>
+Yes. Reading
 
 --- chat_hermes ---
 prompt: '<user>\nA train travels 60 km in 45 minutes. What is its speed in km/h?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 85%
-The train train is a train train train train train train train train train train train train train train train train train train train train
-[adapted]  repeated 8-grams 9%
-To determine if there are km/h, we can use the following approach:
-
-1. The training travels 60 km/h, which is 45%.
-2. Then, we can use the f
+[raw]  repeated 8-grams 71%
+The train travels 60 km in 45 minutes.
+The train travels 60 km in 45 minutes.
+The train travels 60 km in 45 minutes.
+The train travels 60 km
+[adapted]  repeated 8-grams 7%
+To solve this problem, you're given a train, so they're considering the problem's context, and if you're given any specific speed, you'll ne
 
 --- reasoning ---
 prompt: '<user>\nWrite a Python function that returns the largest number in a list.\n</user>\n<bot>\n<think>\n'
-[raw]  repeated 8-grams 41%
-Okay, so I need to solve this problem. So, we have a list of lists. The list is a list of lists. The list is a list of lists. The list is a 
-[adapted]  repeated 8-grams 4%
-Okay, so I need to solve this problem. So, we have any computation where you know. Let's break down the input.
-
-So, we have to determine the
+[raw]  repeated 8-grams 27%
+Okay, let's see. The question is about the largest number in a list. The largest number in a list is a list of numbers in a list. The larges
+[adapted]  repeated 8-grams 2%
+Okay, let's see. The question is about providing a Python function that can be used in Python. The function `largest_number` takes any list 
 
 --- wikipedia ---
 prompt: '== History ==\nThe [[Roman Empire]] was '
-[raw]  repeated 8-grams 79%
-a [[Roman Empire|Empire]] [[Empire|Empire]] [[Empire|Empire]] [[Empire|Empire]] [[Empire|Empire]] [[Empire|Empire]] [[Empire|Empire]] [[Empi
-[adapted]  repeated 8-grams 27%
-the [[Roman Empire]]. The [[Roman Empire]] was the [[Roman Empire]].
+[raw]  repeated 8-grams 78%
+a [[Roman Empire]] which was a [[Roman Empire]] which was a [[Roman Empire]] which was a [[Roman Empire]] which was a [[Roman Empire]] which
+[adapted]  repeated 8-grams 32%
+founded in [[1860]], and therefore, the [[Roman Empire]] was continued to become [[Roman Empire]].
 
-== Empires ==
-[[Image:Roman Empire.jpg|thumb|200px|Roman Empire of Rom
+The [[Roman Empire]] was continued to be
 
 --- chess ---
 prompt: '<g>1700 1-0 1. e4 e5 2. '
-[raw]  repeated 8-grams 3%   2 legal moves, then Nf4
-f4 exf4 3. Nf4 g5 4. Nxg5 d6 5. Nf3 Nc6 6. Bc4 Bg7 7. Nc3 Ne7 8. d4 Ng6 9. Bg5 Be6 10. Bxe7 Qxe7 11. Nd5 Qd7 12. Nxe7 Qxe7 13. Nd5 Qd8 14. N
-[adapted]  repeated 8-grams 0%   2 legal moves, then Nf5
-f4 exf4 3. Nf5 g6 4. Nxh4 Qf6 5. Ng3 Be7 6. Nf5+ Kd8 7. Qxf4 Nc6 8. Bb5 d6 9. O-O-O Be6 10. Nxe7 Kxe7 11. Bc4 Nf6 12. d3 Rhe8 13. Bxf7+ Kxf7
+[raw]  repeated 8-grams 0%   7 legal moves, then Bg6
+f4 exf4 3. Nf3 25... g5 3. Be2 3... d6 4. O-O 4... Bg6 5. d3 5... Bg7 6. Nc3 6... Ne7 7. Bxf4 7... O-O 8. e5 8... dxe5 9. Bxe5 9... Nbc6 10.
+[adapted]  repeated 8-grams 0%   5 legal moves, then =
+f4 d6 3. fxe5 Nd7 4. exd6 = 52. Nc3 b6 7. d4 Bb7 8. e5 Nc6 9. d5 Nb4 10. a3 Nxd5 11. Be2 Nc6 12. Nxd5 Bxd5 13. O-O Nf6 14. Be3 Qd7 15. c4 Bb
 
 --- self-knowledge ---
 prompt: '<user>\nhow do you decide which experts to use?\n</user>\n<bot>\n'
-[raw]  repeated 8-grams 0%
-Adam with deciding wrrepeading between them, taking in numbers. A subject I am reading now can pass to me. Nothing is asked for a pool of my
-[adapted]  repeated 8-grams 0%
-Adam with decision are you syit. None symbols in my alphabet is the answer that you many belonging to a k, which and anything else rose by t
+[raw]  repeated 8-grams 2%
+Adam with decoupled weight decay. The rate follows no schedule at all, because a schedule needs an end to anneal toward and I do not have on
+[adapted]  repeated 8-grams 2%
+Adam with decoupled weight decay. The rate follows no schedule at all, because a schedule needs an end to anneal toward and I do not have on
 ```
 
 </details>
@@ -355,25 +358,25 @@ The numbers below are for tracking purposes and move as the run continues. Held-
 There is a second variance underneath these figures. The same configuration run twice lands about 0.014 apart, because the expert dispatch is not deterministic on CUDA. **Treat about 0.03 as the threshold for a real difference**, not the error bar printed beside one score.
 
 <!-- auto:benchmarks -->
-**Where the model is** (518.2M characters read, 169 experts):
+**Where the model is** (556.5M characters read, 168 experts):
 
 | | nats/char | bits/byte |
 |---|---|---|
-| **held-out, all 8 subjects** | **0.7511** ± 0.0329 | **1.0836** |
-| train | 0.6231 | 0.8989 |
+| **held-out, all 8 subjects** | **0.7512** ± 0.0328 | **1.0837** |
+| train | 0.5591 | 0.8066 |
 
 **Held-out loss per subject:**
 
 | Subject | nats/char | bits/byte |
 |---|---|---|
-| `chess` | 0.484 | 0.698 |
-| `stories` | 0.537 | 0.775 |
-| `code` | 0.631 | 0.910 |
-| `arithmetic` | 0.632 | 0.912 |
-| `reasoning` | 0.686 | 0.990 |
-| `chat` | 0.737 | 1.063 |
-| `chat_hermes` | 1.086 | 1.567 |
-| `wikipedia` | 1.217 | 1.756 |
+| `chess` | 0.480 | 0.692 |
+| `stories` | 0.532 | 0.768 |
+| `arithmetic` | 0.628 | 0.906 |
+| `code` | 0.641 | 0.925 |
+| `reasoning` | 0.694 | 1.001 |
+| `chat` | 0.739 | 1.066 |
+| `chat_hermes` | 1.085 | 1.565 |
+| `wikipedia` | 1.208 | 1.743 |
 <!-- /auto:benchmarks -->
 
 ### Data Scaling
@@ -383,18 +386,18 @@ There is a second variance underneath these figures. The same configuration run 
 
 Every point on this chart is a **bits-per-byte on the PG19 test split** - one held-out set, so the comparison is direct. This model scores **2.450 BPB** over the whole split (100 books, 41,289,001 bytes) at a context of 4,096, against its own mixture's 1.16. PG19 is out of distribution for it: it was trained on a corpus assembled for this project and has read no Victorian novels, so much of that gap is subject matter rather than capability.
 
-**The results so far are promising.** The red line is the fitted power law on this model's own held-out, `L ∝ D^-0.242` with R² 0.98 over every point past the warmup - between Kaplan's 0.095 and Chinchilla's 0.28, and it has held for more than a decade of data. How steep it looks depends on where the fit starts, and the band on the chart spans that range rather than pretending to one number.
+**The results so far are promising.** The red line is the fitted power law on this model's own held-out, `L ∝ D^-0.241` with R² 0.98 over every point past the warmup - between Kaplan's 0.095 and Chinchilla's 0.28, and it has held for more than a decade of data. How steep it looks depends on where the fit starts, and the band on the chart spans that range rather than pretending to one number.
 
-Read straight off that trend, on this model's own mixture. It has read 0.52B characters so far, which took about 7 days at the current rate:
+Read straight off that trend, on this model's own mixture. It has read 0.56B characters so far, which took about 8 days at the current rate:
 
-| held-out | total data read | further reading | days from here at ~830 char/s |
+| held-out | total data read | further reading | days from here at ~768 char/s |
 |---|---|---|---|
-| 1.00 BPB | 0.72B | +0.20B | ~3 |
-| 0.93 BPB | 0.97B | +0.46B | ~6 |
-| 0.80 BPB | 1.82B | +1.30B | ~18 |
-| **0.56 BPB** - one full pass over the corpus | 7.88B | +7.36B | **~103** |
+| 1.00 BPB | 0.78B | +0.22B | ~3 |
+| 0.93 BPB | 1.05B | +0.49B | ~7 |
+| 0.80 BPB | 1.96B | +1.40B | ~21 |
+| **0.57 BPB** | 7.88B | +7.32B | **~110** |
 
-The first four are days to weeks of reading on one laptop GPU, not years, and every one of them sits inside a single pass of the 7.88B-character corpus. The pass itself is about 3.4 months at the current rate - and the model keeps reading after it, because nothing here is scheduled to end.
+The first four are days to weeks of reading on one laptop GPU, not years, and every one of them sits inside a single pass of the 7.88B-character corpus.
 
 The right panel shows which subjects are still moving. code, reasoning, chat, stories are the steep ones; arithmetic and wikipedia have the shallowest slopes, which is the honest counterweight - the expensive domains are not the fastest ones.
 <!-- /auto:scaling -->
